@@ -1,0 +1,8 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+#panelmapa{
+    -fx-background-image: url('Ciudadela.png');
+    -fx-background-size: 100% 100%;
+}
