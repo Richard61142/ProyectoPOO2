@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane id="OpcionesResidente" fx:id="OpcionesResidente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#IngresarCuenta" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.controlciudadela.OpcionesResidenteController">
+   <children>
+      <TextField layoutX="72.0" layoutY="106.0" prefHeight="25.0" prefWidth="95.0" />
+      <Button layoutX="25.0" layoutY="64.0" mnemonicParsing="false" text="Registrar Visita" />
+      <Label layoutX="25.0" layoutY="110.0" text="F Inicio" />
+      <Label layoutX="198.0" layoutY="110.0" text="F Fin" />
+      <TextField layoutX="236.0" layoutY="106.0" prefHeight="25.0" prefWidth="95.0" />
+      <Button layoutX="370.0" layoutY="106.0" mnemonicParsing="false" text="Buscar" />
+      <TableView layoutX="25.0" layoutY="165.0" prefHeight="200.0" prefWidth="540.0">
+        <columns>
+            <TableColumn prefWidth="147.0" text="Nombre Visita" />
+          <TableColumn prefWidth="112.0" text="Cedula Visita" />
+          <TableColumn prefWidth="106.0" text="Código Acceso" />
+            <TableColumn prefWidth="79.0" text="Fecha" />
+            <TableColumn prefWidth="95.0" text="Estado" />
+        </columns>
+      </TableView>
+      <MenuBar layoutY="2.0" prefHeight="36.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Mi Información">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Mis Vehiculos">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Mis Visitas">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Salir">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</Pane>
