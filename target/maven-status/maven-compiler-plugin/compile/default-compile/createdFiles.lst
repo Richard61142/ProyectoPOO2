@@ -1,0 +1,6 @@
+com\mycompany\controlciudadela\App.class
+com\mycompany\controlciudadela\Usuario.class
+module-info.class
+com\mycompany\controlciudadela\Residente.class
+com\mycompany\controlciudadela\Admin.class
+com\mycompany\controlciudadela\OpcionesResidenteController.class
