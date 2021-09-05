@@ -6,8 +6,12 @@
 package com.mycompany.controlciudadela;
 
 import com.mycompany.controlciudadela.App;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -30,7 +34,7 @@ import javafx.stage.Stage;
  */
 public class IngresoUsuarioController implements Initializable {
 
-
+    private ArrayList<Residente> rst;
     @FXML
     private Button IngresarCuenta;
     @FXML
@@ -43,29 +47,41 @@ public class IngresoUsuarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        rst= Admin.LeerRegistro();
+        
         
     } 
     
     @FXML
-    private void ValidarUsuario(MouseEvent event){
-        try{ 
-            List<Residente> residentes =Admin.Registro();
-            for(Residente elemt:residentes){
-                if(UsuarioIngresado.getText().equalsIgnoreCase(elemt.getNombre()) && 
-                ContrasenaUsuarioIngresado.getText().equalsIgnoreCase(elemt.getContrasena())){
+    private void ValidarUsuario(MouseEvent event) throws IOException{
+            Residente rstIngresado;
+            //List<Residente> residentes =Admin.Registro();
+            for(Residente elemt:rst){
+                try{
+                if( (UsuarioIngresado.getText().equals(elemt.getNombre())) && 
+                ( ContrasenaUsuarioIngresado.getText().equals(elemt.getContrasena())) ){
                 //si los datos coinciden con un residente pasa a la vista de opciones del residente
-                //de ser diferente debe iniciar sesión de admin por el momento
+                //de ser diferente debe mostrar ERROR*/
+                    rstIngresado=elemt;
+                IngresarCuenta.setOnMouseClicked(e ->{
+                    try{
+                        FXMLLoader loader = new FXMLLoader(App.class.getResource("OpcionesResidente.fxml"));
+                        Parent vistaOpcionesResidente = loader.load();
+                         Scene sc = new Scene(vistaOpcionesResidente);
+                         Stage st = new Stage();
+                        st.setScene(sc);
+                        st.setTitle("Opciones Residente");
+                        st.show();
                 
-                FXMLLoader loader = new FXMLLoader(App.class.getResource("OpcionesResidente.fxml"));
-                Parent vistaOpcionesResidente= loader.load();
-                Scene sc = new Scene(vistaOpcionesResidente);
-                Stage st = new Stage();
-                st.setScene(sc);
-                st.setTitle("Opciones Residente");
-                st.show();
                 
-            }else if(UsuarioIngresado.getText().equalsIgnoreCase("admin") && 
-                ContrasenaUsuarioIngresado.getText().equalsIgnoreCase("admin")){
+                    }catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+               
+                });
+                
+            }else if(UsuarioIngresado.getText().equals("admin") && 
+                ContrasenaUsuarioIngresado.getText().equals("admin")){
                 
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("MapaCiudadela.fxml"));
                 Parent vistaMapaCiudadela= loader.load();
@@ -75,8 +91,6 @@ public class IngresoUsuarioController implements Initializable {
                 st.setTitle("Opciones Admin");
                 st.show();
             }
-            
-        }
         }catch(IOException ex){
             
             Alert AlertaError = new Alert(Alert.AlertType.NONE);
@@ -90,7 +104,6 @@ public class IngresoUsuarioController implements Initializable {
             System.out.println("No se pudo mostrar vista");
         }
     }
-    
-    
-    
+            
+    }
 }

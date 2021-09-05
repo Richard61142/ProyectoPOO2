@@ -5,18 +5,21 @@
  */
 package com.mycompany.controlciudadela;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  *
  * @author Kennyn Balseca
  */
-public class Residente extends Usuario {
+public class Residente extends Usuario implements Serializable {
     private String mz;
     private String villa;
     private String genero;
     private String pin;
-
+    private ArrayList<Vehiculo> misVehiculos;
     
-    public Residente(String mz, String villa, String genero, String pin, String nombre, String correo, String contrasena) {
+    public Residente(String nombre, String correo, String contrasena,String genero,String mz, String villa, String pin) {
         super(nombre, correo, contrasena);
         this.mz = mz;
         this.villa = villa;
@@ -46,7 +49,8 @@ public class Residente extends Usuario {
     //Informacion y Cambio de Pin
     @Override
     public String toString(){
-        return ("Nombre Residente: "+ super.getNombre() +"\nGenero: "+ genero +"\n Manzana: "+ mz +"\nVilla: "+villa+"\nPin: "+ pin);
+        return ("Nombre Residente: "+ super.getNombre()+"\nCorreo: "+super.getCorreo()+"\nContraseña: "+super.getContrasena() 
+                +"\nGenero: "+genero+"\nManzana: "+mz+"\nVilla: "+villa+"\nPin: "+pin);
     }
     
     /*public String Info_CambioPin(String correo){
@@ -57,7 +61,7 @@ public class Residente extends Usuario {
     
     
     //Registro de visitantes
-    
+   
     
     //Listado de visitantes ACTIVOS
     

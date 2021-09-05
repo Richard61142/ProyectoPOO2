@@ -1,6 +1,10 @@
+com\mycompany\controlciudadela\Vehiculo.class
 com\mycompany\controlciudadela\App.class
+com\mycompany\controlciudadela\MenuInicioController.class
 com\mycompany\controlciudadela\Usuario.class
 module-info.class
+com\mycompany\controlciudadela\Visitante.class
+com\mycompany\controlciudadela\MapaCiudadelaController.class
+com\mycompany\controlciudadela\IngresoUsuarioController.class
 com\mycompany\controlciudadela\Residente.class
 com\mycompany\controlciudadela\Admin.class
-com\mycompany\controlciudadela\OpcionesResidenteController.class
